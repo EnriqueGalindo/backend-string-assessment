@@ -20,13 +20,10 @@
 def verbing(s):
     if len(s) > 3:
         if ("ing" in s[-3:]) != 0:
-            print("ok")
             return s + "ly"
         else:
-            print("ok")
             return s + "ing"
     else:
-        print("ok")
         return s
 
 
@@ -43,10 +40,9 @@ def verbing(s):
 # This dinner is good!
 def not_bad(s):
     if s.find("bad") > s.find("not"):
-        print("ok")
-        return s.replace(s[s.find("not"):s.find("bad") + 1], "good")
+        return s.replace(s[s.find("not"):s.find("bad") + 3], "good")
     else:
-        print("ok")
+        return s
     
 
 
@@ -58,21 +54,14 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-    if len(a) % 2 == 0:
-        if len(b) % 2 == 0:
-            print("ok")
-            return(a[:len(a)/2 + 1] + b[:len(b)/2 + 1] + a[len(a)/2:] + b[len(b)/2:])
-        else:
-            print("ok")
-            return(a[:len(a)/2 + 1] + b[:int(len(b)/2) + 2] + a[len(a)/2:] + b[int(len(b)/2) + 1:])
+    if len(a) % 2 == 0 and len(b) % 2 == 0:
+        return a[:len(a)//2] + b[:len(b)//2] + a[len(a)//2:] + b[len(b)//2:]
+    elif len(b) % 2 == 0:
+        return a[:len(a)//2 + 1] + b[:len(b)//2] + a[len(a)//2 + 1:] + b[len(b)//2:]
+    elif len(a) % 2 == 0:
+        return a[:len(a)//2] + b[:len(b)//2 + 1] + a[len(a)//2:] + b[len(b)//2 + 1:]
     else:
-        if len(b) % 2 == 0:
-            print("ok")
-            return(a[:int(len(a)/2 + 2)] + b[:len(b)/2 + 1] + a[int(len(a)/2) + 1:] + b[int(len(b)/2):])
-        else:
-            print("ok")
-            return(a[:int(len(a)/2 + 2)] + b[:int(len(b)/2) + 2] + a[int(len(a)/2) + 1:] + b[int(len(b)/2) + 1:])
-
+        return a[:len(a)//2 + 1] + b[:len(b)//2 + 1] + a[len(a)//2 + 1:] + b[len(b)//2 + 1:]
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
 def test(got, expected):
